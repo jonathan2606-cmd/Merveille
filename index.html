@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Pour Merveille 🌹</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+      height: 100%;
+    }
+
+    .video-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .content {
+      position: relative;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-y: auto;  /* Permet de scroller */
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      background: #e6b7a9;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin: 1rem 0;
+    }
+
+    button:hover {
+      background: #d49a8e;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .message {
+      font-size: 1.5rem;
+      max-width: 600px;
+      margin: 1rem;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .visible {
+      opacity: 1;
+    }
+
+    /* Si tu veux rendre le texte plus doux et chaleureux */
+    p {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🌌 Vidéo de fond romantique -->
+  <video class="video-bg" autoplay muted loop playsinline>
+    <source src="NK.mp4" type="video/mp4">
+    Ton navigateur ne supporte pas la vidéo...
+  </video>
+
+  <!-- 💌 Contenu -->
+  <div class="content">
+    <h1>Pour Merveille 💌</h1>
+    <p>Une déclaration qui vient du fond de mon cœur... rien que pour toi.</p>
+
+    <button id="btn1" onclick="showStep(1)">Clique ici pour mon premier mot pour toi</button>
+    <div id="msg1" class="message hidden">Depuis le moment où tu es entrée dans ma vie, chaque instant a été une explosion de lumière et de douceur. Tu es mon rêve éveillé, et je suis à tes pieds.</div>
+
+    <button id="btn2" class="hidden" onclick="showStep(2)">Un autre mot de mon cœur...</button>
+    <div id="msg2" class="message hidden">Ton regard, ton sourire, chaque geste que tu fais, me fait perdre pied. Dans tes bras, je trouve un refuge, une paix que je ne pensais même pas possible.</div>
+
+    <button id="btn3" class="hidden" onclick="showStep(3)">Le mot le plus important...</button>
+    <div id="msg3" class="message hidden">Je ne suis pas juste épris de toi. Non. Je suis épris d’amour pour toi. Mon cœur, mon âme, tout ce que je suis, t’appartient. Et je n’ai jamais ressenti un tel amour, aussi pur, aussi profond.</div>
+  </div>
+
+  <script>
+    function showStep(step) {
+      // Afficher le message
+      document.getElementById(`msg${step}`).classList.remove('hidden');
+      document.getElementById(`msg${step}`).classList.add('visible');
+      
+      // Masquer le bouton actuel
+      document.getElementById(`btn${step}`).classList.add('hidden');
+      
+      // Afficher le prochain bouton
+      const nextBtn = document.getElementById(`btn${step + 1}`);
+      if (nextBtn) {
+        nextBtn.classList.remove('hidden');
+      }
+    }
+  </script>
+
+</body>
+</html>
